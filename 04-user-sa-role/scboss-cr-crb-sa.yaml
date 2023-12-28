@@ -1,0 +1,39 @@
+
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: scboss
+rules:
+- apiGroups:
+  - storage.k8s.io
+  resources:
+  - storageclasses
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: scboss
+subjects:
+- kind: ServiceAccount
+  name: scboss-app
+  namespace: sa04
+subjects:
+- kind: User
+  name: scboss
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: scboss
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: scboss
+  namespace: sa04
+
+

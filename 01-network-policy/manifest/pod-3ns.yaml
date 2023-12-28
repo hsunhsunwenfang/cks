@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   labels:
     app: orion
-name: g04
+  name: g04
 ---
 apiVersion: v1
 kind: Pod
@@ -14,6 +14,8 @@ metadata:
   name: backend
   namespace: g04
 spec:
+  hostname: backend
+  subdomain: cks
   containers:
     - image: bmuschko/nodejs-hello-world:1.0.0
       name: hello
@@ -29,6 +31,8 @@ metadata:
   name: frontend
   namespace: g04
 spec:
+  hostname: frontend
+  subdomain: cks
   containers:
   - image: alpine
     name: frontend
@@ -45,6 +49,8 @@ metadata:
     tier: outside
   name: other
 spec:
+  hostname: other
+  subdomain: cks
   containers:
   - image: alpine
     name: other
