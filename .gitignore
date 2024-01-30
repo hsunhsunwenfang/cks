@@ -2,3 +2,7 @@
 *.csr
 *.key
 *pdf/
+*_s.md
+lfs260/labs/cis-cat/Assessor*
+lfs260/labs/cis-cat/cis-cat.zip
+lfs260/labs/use-first-node/LFS260*
